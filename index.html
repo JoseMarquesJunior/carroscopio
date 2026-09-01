@@ -145,6 +145,12 @@
   a { color: var(--destaque); text-decoration: none; }
   a:hover { text-decoration: underline; }
 
+  /* Fora do cartão (telas largas) o botão não tem função — a tabela mostra
+     todas as colunas direto. Essa regra precisa vir ANTES da media query:
+     como as duas têm a mesma especificidade, se viesse depois ela sempre
+     ganharia da query, escondendo o botão até no celular. */
+  .mostrar-mais-btn { display: none; }
+
   /* Abaixo de 700px, a tabela não cabe de jeito nenhum (mesmo rolando na
      horizontal fica ruim de usar no polegar) — troca pra um layout de
      "cartão": cada linha vira um bloco com os campos básicos empilhados
@@ -222,7 +228,6 @@
       cursor: pointer;
     }
   }
-  .mostrar-mais-btn { display: none; }
 </style>
 </head>
 <body>
