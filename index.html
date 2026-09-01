@@ -108,6 +108,8 @@
   }
   #limpar-filtros:hover { border-color: var(--destaque); color: var(--destaque); }
   .contagem { margin: 0 0 12px; color: var(--texto-fraco); font-size: 0.85rem; }
+  .rodape-contador { margin: 16px 0 0; text-align: center; }
+  .rodape-contador img { vertical-align: middle; }
   .tabela-scroll {
     /* max-height + overflow (os 2 eixos) faz a tabela rolar dentro de si
        mesma, tanto na horizontal quanto na vertical — é o que permite o
@@ -5314,6 +5316,7 @@
       </tbody>
     </table>
   </div>
+  <p class="rodape-contador" id="rodape-contador"></p>
 <script>
   let ordemAtual = { indice: null, asc: true };
 
@@ -5440,6 +5443,11 @@
       const [indice, asc] = ordenacaoMobile.value.split(':');
       ordenarPor(parseInt(indice, 10), asc === '1');
     });
+  }
+
+  if (location.protocol !== 'file:') {
+    document.getElementById('rodape-contador').innerHTML =
+      '<img src="https://hits.sh/josemarquesjunior.github.io/carroscopio.svg?style=flat-square&label=visitas&color=2563eb" alt="Contador de visitas">';
   }
 
   ordenarPor(0);
